@@ -1,59 +1,56 @@
-# HydrationTest
+1. npm i
+2. npm start
+3. goto `http://localhost:4200`
+4.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+```log
+Error: NG0503: During serialization, Angular detected DOM nodes that were created outside of Angular context and provided as projectable nodes (likely via `ViewContainerRef.createComponent` or `createComponent` APIs). Hydration is not supported for such cases, consider refactoring the code to avoid this pattern or using `ngSkipHydration` on the host element of the component.
 
-## Development server
+<app-root>
+  …
+  <!-- container -->
+  <app-wrapper>…</app-wrapper>  <-- AT THIS LOCATION
+  …
+</app-root>
 
-To start a local development server, run:
+Note: attributes are only displayed to better represent the DOM but have no effect on hydration mismatches.
 
-```bash
-ng serve
+ Find more at https://v21.angular.dev/errors/NG0503
+    at unsupportedProjectionOfDomNodes (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:19498:10)  
+    at serializeLView (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34147:17)
+    at serializeLContainer (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34050:39)
+    at serializeLView (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34161:40)
+    at annotateHostElementForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34216:17)  
+    at annotateComponentLViewForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:33911:12)
+    at annotateForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:33958:9)
+    at prepareForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:727:50)
+    at renderInternal (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:767:3)
+    at Timeout.eval (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:11095:11)
+Error: NG0503: During serialization, Angular detected DOM nodes that were created outside of Angular context and provided as projectable nodes (likely via `ViewContainerRef.createComponent` or `createComponent` APIs). Hydration is not supported for such cases, consider refactoring the code to avoid this pattern or using `ngSkipHydration` on the host element of the component.
+
+<app-root>
+  …
+  <!-- container -->
+  <app-wrapper>…</app-wrapper>  <-- AT THIS LOCATION
+  …
+</app-root>
+
+Note: attributes are only displayed to better represent the DOM but have no effect on hydration mismatches.
+
+ Find more at https://v21.angular.dev/errors/NG0503
+    at unsupportedProjectionOfDomNodes (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:19498:10)  
+    at serializeLView (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34147:17)
+    at serializeLContainer (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34050:39)
+    at serializeLView (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34161:40)
+    at annotateHostElementForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:34216:17)  
+    at annotateComponentLViewForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:33911:12)
+    at annotateForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-VPZWV425.js:33958:9)
+    at prepareForHydration (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:727:50)
+    at renderInternal (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:767:3)
+    at Timeout.eval (C:\code\my-project\hydration-test\.angular\cache\21.2.5\hydration-test\vite\deps_ssr\chunk-ADU3DNVD.js:11095:11)
+
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## work success on client
+1. Replace angular.json with angular.client.json.

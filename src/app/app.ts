@@ -1,12 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Wrapper } from './wrapper';
+import { Cmp1 } from './cmp1/cmp1';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Wrapper, Cmp1],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('hydration-test');
-}
+export class App {}
