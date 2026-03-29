@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-wrapper',
   imports: [],
   templateUrl: './wrapper.html',
+  host: { ngSkipHydration: 'true' },
 })
 export class WrapperCmp {}

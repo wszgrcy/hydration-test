@@ -1,5 +1,5 @@
-<ng-template #template>
-  <app-cmp1></app-cmp1>
+<ng-template #template ngSkipHydration>
+  <app-cmp1 ngSkipHydration></app-cmp1>
 </ng-template>
 
-<ng-template appWrapper [tempRef]="template"></ng-template>
+<ng-template appWrapper [tempRef]="template" ngSkipHydration></ng-template>
