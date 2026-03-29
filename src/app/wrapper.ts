@@ -11,6 +11,7 @@ import { WrapperCmp } from './wrapper/wrapper';
 
 @Directive({
   selector: '[appWrapper]',
+  host: { ngSkipHydration: 'true' },
 })
 export class Wrapper {
   tempRef = input.required<TemplateRef<any>>();
